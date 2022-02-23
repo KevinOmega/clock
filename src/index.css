@@ -1,13 +1,96 @@
+:root {
+  --background: #009b9b;
+  --text: #ffffff;
+  --timer-border: #007a7a;
+}
+
+/* general */
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock-container {
+  color: var(--text);
+}
+
+.title {
+  text-align: center;
+}
+/* Interval buttons */
+
+.interval-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.block-btn {
+  margin: 0.5rem 3rem;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.block-control {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.block-control button {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* TImer  */
+
+.timer-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1rem;
+}
+
+.timer {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  border: solid 8px var(--timer-border);
+  border-radius: 25%;
+}
+
+.timer-btn {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+
+.timer-btn button {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin: 0.2rem;
 }
