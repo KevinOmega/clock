@@ -94,3 +94,7 @@ code {
   cursor: pointer;
   margin: 0.2rem;
 }
+
+.danger {
+  color: red;
+}
