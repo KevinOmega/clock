@@ -79,7 +79,16 @@ const Timer = () => {
     return () => {
       clearInterval(myInterval);
     };
-  }, [isRunning]);
+  }, [
+    isRunning,
+    currentType,
+    rest,
+    season,
+    setCurrentType,
+    setTime,
+    time.minutes,
+    time.seconds,
+  ]);
 
   return (
     <div className="timer-container">

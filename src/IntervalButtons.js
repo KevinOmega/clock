@@ -37,7 +37,7 @@ const IntervalButtons = () => {
 
   useEffect(() => {
     setTime({ minutes: season, seconds: 0 });
-  }, [season]);
+  }, [season, setTime]);
   return (
     <div className="interval-btn">
       <div className="block-btn">
