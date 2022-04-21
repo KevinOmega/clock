@@ -41,7 +41,7 @@ const IntervalButtons = () => {
     } else {
       setTime({ minutes: rest, seconds: 0 });
     }
-  }, [season, setTime, rest]);
+  }, [season, setTime, rest, currentType]);
   return (
     <div className="interval-btn">
       <div className="block-btn">
