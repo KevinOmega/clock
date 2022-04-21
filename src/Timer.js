@@ -44,7 +44,6 @@ const Timer = () => {
   }, [beep, isRunning]);
 
   useEffect(() => {
-    setCurrentType(true);
     let countDown =
       new Date().getTime() +
       (time.minutes * 60000 + time.seconds * 1000) +
@@ -56,20 +55,25 @@ const Timer = () => {
       let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
       setTime({ minutes, seconds });
 
-      if (minutes === 0 && seconds < 5) {
+      if (minutes === 0 && seconds < 10) {
         setBeep(true);
       }
 
-      if (minutes <= 0 && seconds <= 0) {
+      if (minutes === 0 && seconds < 1) {
         setCurrentType(!currentType);
-        let newTime = 0;
         if (currentType) {
-          newTime = rest;
+          setTime({ minutes: rest, seconds: 0 });
         } else {
-          newTime = season;
+          setTime({ minutes: season, seconds: 0 });
         }
-        countDown = new Date().getTime() + newTime * 60000;
+        countDown =
+          new Date().getTime() +
+          (time.minutes * 60000 + time.seconds * 1000) +
+          1000;
       }
+      return () => {
+        clearInterval(myInterval);
+      };
     }, 1000);
 
     if (!isRunning) {

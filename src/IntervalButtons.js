@@ -3,7 +3,7 @@ import { useGLobalContext } from "./context";
 import { HiArrowSmDown, HiArrowSmUp } from "react-icons/hi";
 
 const IntervalButtons = () => {
-  const { rest, season, isRunning, setRest, setSeason, setTime } =
+  const { rest, season, isRunning, setRest, setSeason, setTime, currentType } =
     useGLobalContext();
 
   const handleClick = (type) => {
@@ -36,8 +36,12 @@ const IntervalButtons = () => {
   };
 
   useEffect(() => {
-    setTime({ minutes: season, seconds: 0 });
-  }, [season, setTime]);
+    if (currentType) {
+      setTime({ minutes: season, seconds: 0 });
+    } else {
+      setTime({ minutes: rest, seconds: 0 });
+    }
+  }, [season, setTime, rest]);
   return (
     <div className="interval-btn">
       <div className="block-btn">
